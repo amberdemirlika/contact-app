@@ -13,4 +13,12 @@ class ContactsController < ApplicationController
     )
     render :show
   end
+
+  def show
+    @contact = Contact.find_by(id: params[:id])
+    render :show
+  end
+
+  # def update
+
 end
