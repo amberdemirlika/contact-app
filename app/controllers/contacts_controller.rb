@@ -29,4 +29,10 @@ class ContactsController < ApplicationController
     )
     render :show
   end
+
+  def destroy
+    @contact = Contact.find_by(id: params[:id])
+    @contact.destroy
+    render json: { message: "Contact destroyed successfully" }
+  end
 end
