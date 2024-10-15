@@ -19,6 +19,14 @@ class ContactsController < ApplicationController
     render :show
   end
 
-  # def update
-
+  def update
+    @contact = Contact.find_by(id: params[:id])
+    @contact.update(
+      name: params[:name] || @contact.name,
+      email: params[:email] || @contact.email,
+      phone: params[:phone] || @contact.phone,
+      address: params[:address] || @contact.address,
+    )
+    render :show
+  end
 end
